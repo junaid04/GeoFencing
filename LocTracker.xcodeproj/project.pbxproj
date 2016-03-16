@@ -13,6 +13,10 @@
 		041BD39B1C9172570007C15B /* LocTracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 041BD3991C9172570007C15B /* LocTracker.xcdatamodeld */; };
 		041BD39D1C9172570007C15B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 041BD39C1C9172570007C15B /* Assets.xcassets */; };
 		041BD3A01C9172570007C15B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 041BD39E1C9172570007C15B /* LaunchScreen.storyboard */; };
+		041BD3A81C91727E0007C15B /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041BD3A71C91727E0007C15B /* Location.swift */; };
+		041BD3AA1C91898A0007C15B /* mapClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041BD3A91C91898A0007C15B /* mapClass.swift */; };
+		0427D2B11C98485500FBB7DE /* CheckDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0427D2B01C98485500FBB7DE /* CheckDetailsViewController.swift */; };
+		A5E116C21C942FA300ADA10D /* Location.gpx in Resources */ = {isa = PBXBuildFile; fileRef = A5E116C11C942FA300ADA10D /* Location.gpx */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +28,13 @@
 		041BD39C1C9172570007C15B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		041BD39F1C9172570007C15B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		041BD3A11C9172570007C15B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		041BD3A71C91727E0007C15B /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		041BD3A91C91898A0007C15B /* mapClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = mapClass.swift; sourceTree = "<group>"; };
+		0427D2AF1C98341200FBB7DE /* Work.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Work.gpx; sourceTree = "<group>"; };
+		0427D2B01C98485500FBB7DE /* CheckDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckDetailsViewController.swift; sourceTree = "<group>"; };
+		0427D2B21C98513900FBB7DE /* hometowork.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = hometowork.gpx; sourceTree = "<group>"; };
+		A50511A91C94685000668CBC /* Home.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Home.gpx; sourceTree = "<group>"; };
+		A5E116C11C942FA300ADA10D /* Location.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = Location.gpx; path = LocTracker/Location.gpx; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,6 +51,10 @@
 		041BD3861C9172560007C15B = {
 			isa = PBXGroup;
 			children = (
+				0427D2AF1C98341200FBB7DE /* Work.gpx */,
+				A5E116C11C942FA300ADA10D /* Location.gpx */,
+				A50511A91C94685000668CBC /* Home.gpx */,
+				0427D2B21C98513900FBB7DE /* hometowork.gpx */,
 				041BD3911C9172560007C15B /* LocTracker */,
 				041BD3901C9172560007C15B /* Products */,
 			);
@@ -58,11 +73,14 @@
 			children = (
 				041BD3921C9172560007C15B /* AppDelegate.swift */,
 				041BD3941C9172560007C15B /* ViewController.swift */,
+				041BD3A71C91727E0007C15B /* Location.swift */,
+				041BD3A91C91898A0007C15B /* mapClass.swift */,
 				041BD3961C9172560007C15B /* Main.storyboard */,
 				041BD39C1C9172570007C15B /* Assets.xcassets */,
 				041BD39E1C9172570007C15B /* LaunchScreen.storyboard */,
 				041BD3A11C9172570007C15B /* Info.plist */,
 				041BD3991C9172570007C15B /* LocTracker.xcdatamodeld */,
+				0427D2B01C98485500FBB7DE /* CheckDetailsViewController.swift */,
 			);
 			path = LocTracker;
 			sourceTree = "<group>";
@@ -127,6 +145,7 @@
 			files = (
 				041BD3A01C9172570007C15B /* LaunchScreen.storyboard in Resources */,
 				041BD39D1C9172570007C15B /* Assets.xcassets in Resources */,
+				A5E116C21C942FA300ADA10D /* Location.gpx in Resources */,
 				041BD3981C9172560007C15B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -138,8 +157,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				041BD3AA1C91898A0007C15B /* mapClass.swift in Sources */,
 				041BD3951C9172560007C15B /* ViewController.swift in Sources */,
 				041BD3931C9172560007C15B /* AppDelegate.swift in Sources */,
+				0427D2B11C98485500FBB7DE /* CheckDetailsViewController.swift in Sources */,
+				041BD3A81C91727E0007C15B /* Location.swift in Sources */,
 				041BD39B1C9172570007C15B /* LocTracker.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -288,6 +310,7 @@
 				041BD3A61C9172570007C15B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
