@@ -44,30 +44,7 @@ class ViewController: UIViewController, MKMapViewDelegate{
     }
     
     @IBAction func updateLocation(sender: AnyObject) {
-//        
-//        let spanX = 0.58;
-//        let spanY = 0.58;
-//        loc.currentLocation = loc.locmanager.location!
-//        var region = MKCoordinateRegion()
-//        region.center.latitude = loc.locmanager.location!.coordinate.latitude
-//        region.center.longitude = loc.locmanager.location!.coordinate.longitude
-//        region.span = MKCoordinateSpanMake(spanX, spanY)
-//        self.mapView.setRegion(region, animated: true)
-        
-//        let spanX = 0.58;
-//        let spanY = 0.58;
-//        
-//        let coordinates = CLLocationCoordinate2D(latitude: loc.locmanager.location!.coordinate.latitude, longitude: loc.locmanager.location!.coordinate.longitude)
-//        
-//        _ = MKCircle(centerCoordinate: coordinates, radius: 2000)
-//        
-//        let region = MKCoordinateRegion(center: loc.locmanager.location!.coordinate, span: MKCoordinateSpanMake(spanX, spanY))
-//        self.mapView.setRegion(region, animated: true)
-//
-//        let dropPin = MKPointAnnotation()
-//        dropPin.coordinate = loc.currentLocation.coordinate
-//        dropPin.title = "Add"
-//        mapView.addAnnotation(dropPin)
+
         
         let userLocation = mapView.userLocation
         
@@ -78,19 +55,16 @@ class ViewController: UIViewController, MKMapViewDelegate{
 
     }
     
-       
+    
     @IBAction func monitorRegion(sender: AnyObject) {
         
         loc.locmanager.requestAlwaysAuthorization()
-//        var centre = CLLocationCoordinate2D()
-//        centre.latitude = self.mapView.centerCoordinate.latitude;
-//        centre.longitude = self.mapView.centerCoordinate.longitude;
-        
         let centre = region.center
         let circularRegion = CLCircularRegion(center: centre, radius: 200, identifier: "Work")
         loc.locmanager.startMonitoringForRegion(circularRegion)
     }
     
+    //create region
     func makeRegion() {
         
         region = MKCoordinateRegion()
