@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <gpx version="1.1" creator="Xcode">
     <wpt lat="24.891586" lon="67.068055">
-        <name>Home</name>
+        <name>Home Place</name>
     </wpt>
     <wpt lat="24.8888883" lon="67.0606127">
-        <name>Work</name>
+        <name>Work Place</name>
     </wpt>
 </gpx>
