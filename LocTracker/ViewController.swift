@@ -26,16 +26,12 @@ class ViewController: UIViewController, MKMapViewDelegate{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         // Do any additional setup after loading the view, typically from a nib.
         mapView.delegate = self
         mapView.showsUserLocation = true
     }
     
-    @IBAction func addRegion(sender: AnyObject) {
-        
-        loadOverlayForRegionWithLatitude(loc.currentLocation.coordinate.latitude, andLongitude: loc.currentLocation.coordinate.longitude)
-        
-    }
     
     override func viewWillAppear(animated: Bool) {
         
@@ -43,19 +39,43 @@ class ViewController: UIViewController, MKMapViewDelegate{
         loadOverlayForRegionWithLatitude(region.center.latitude, andLongitude: region.center.longitude)
     }
     
-    @IBAction func updateLocation(sender: AnyObject) {
 
+    //Map view delegate
+    func mapView(mapView: MKMapView, didUpdateUserLocation userLocation: MKUserLocation) {
         
         let userLocation = mapView.userLocation
+        mapView.centerCoordinate = userLocation.coordinate
         
-        let region = MKCoordinateRegionMakeWithDistance(
-            userLocation.location!.coordinate, 2000, 2000)
+        let dropPin = MKPointAnnotation()
+        dropPin.coordinate = region.center
+        dropPin.title = "Add"
+        mapView.addAnnotation(dropPin)
         
-        mapView.setRegion(region, animated: true)
-
+        
     }
     
+    //render visual circle on map
+    func mapView(mapView: MKMapView, rendererForOverlay overlay: MKOverlay) -> MKOverlayRenderer {
+        
+        circleRenderer = MKCircleRenderer(overlay: overlay)
+        circleRenderer.fillColor = UIColor.redColor().colorWithAlphaComponent(0.1)
+        circleRenderer.strokeColor = UIColor.redColor()
+        circleRenderer.lineWidth = 1
+        return circleRenderer
+        
+    }
     
+    //zoom into current Location
+    @IBAction func zoomIntoLocation(sender: AnyObject) {
+        
+        let userLocation = mapView.userLocation
+        let region = MKCoordinateRegionMakeWithDistance(
+            userLocation.location!.coordinate, 2000, 2000)
+        mapView.setRegion(region, animated: true)
+        
+    }
+    
+    //Region Monitor
     @IBAction func monitorRegion(sender: AnyObject) {
         
         loc.locmanager.requestAlwaysAuthorization()
@@ -75,29 +95,7 @@ class ViewController: UIViewController, MKMapViewDelegate{
         
     }
     
-    func mapView(mapView: MKMapView, didUpdateUserLocation userLocation: MKUserLocation) {
-        
-        let userLocation = mapView.userLocation
-       
-        mapView.centerCoordinate = userLocation.coordinate
-        let dropPin = MKPointAnnotation()
-        dropPin.coordinate = region.center
-        dropPin.title = "Add"
-        mapView.addAnnotation(dropPin)
-        
-        
-    }
-    
-    func mapView(mapView: MKMapView, rendererForOverlay overlay: MKOverlay) -> MKOverlayRenderer {
-        
-        circleRenderer = MKCircleRenderer(overlay: overlay)
-        circleRenderer.fillColor = UIColor.redColor().colorWithAlphaComponent(0.1)
-        circleRenderer.strokeColor = UIColor.redColor()
-        circleRenderer.lineWidth = 1
-        return circleRenderer
-        
-    }
-    
+    //create region for circle on map
     func loadOverlayForRegionWithLatitude(latitude: Double, andLongitude longitude: Double) {
         
         let coordinates = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
