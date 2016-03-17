@@ -1,11 +1,63 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="eKy-I3-C79">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="5Gt-Ph-csg">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Welcome Controller View Controller-->
+        <scene sceneID="mSA-Bn-Ov7">
+            <objects>
+                <viewController id="XQk-tT-QfC" customClass="WelcomeControllerViewController" customModule="LocTracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="cv6-f5-gAe"/>
+                        <viewControllerLayoutGuide type="bottom" id="Wfo-NB-ckI"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="YgA-pW-wXf">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="emojo1.png" translatesAutoresizingMaskIntoConstraints="NO" id="SSO-Fn-YaA">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                            </imageView>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="11d-68-ywP">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="NsK-WP-6p8">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                </view>
+                                <blurEffect style="light"/>
+                            </visualEffectView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter your name" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="unlessEditing" translatesAutoresizingMaskIntoConstraints="NO" id="7AO-AO-D5m">
+                                <rect key="frame" x="20" y="269" width="280" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="7AO-AO-D5m" secondAttribute="trailing" id="91E-nn-G7y"/>
+                            <constraint firstItem="11d-68-ywP" firstAttribute="leading" secondItem="YgA-pW-wXf" secondAttribute="leading" id="CDc-aX-6qu"/>
+                            <constraint firstItem="Wfo-NB-ckI" firstAttribute="top" secondItem="SSO-Fn-YaA" secondAttribute="bottom" id="DIv-64-Sfe"/>
+                            <constraint firstItem="Wfo-NB-ckI" firstAttribute="top" secondItem="11d-68-ywP" secondAttribute="bottom" id="G8N-kU-tCy"/>
+                            <constraint firstItem="SSO-Fn-YaA" firstAttribute="top" secondItem="YgA-pW-wXf" secondAttribute="top" id="KM4-P3-AK8"/>
+                            <constraint firstItem="11d-68-ywP" firstAttribute="top" secondItem="YgA-pW-wXf" secondAttribute="top" id="N69-za-jp2"/>
+                            <constraint firstItem="SSO-Fn-YaA" firstAttribute="leading" secondItem="YgA-pW-wXf" secondAttribute="leading" id="SrE-jG-KsL"/>
+                            <constraint firstAttribute="trailing" secondItem="SSO-Fn-YaA" secondAttribute="trailing" id="UOO-J3-fLS"/>
+                            <constraint firstItem="7AO-AO-D5m" firstAttribute="centerY" secondItem="YgA-pW-wXf" secondAttribute="centerY" id="XDp-sF-vwr"/>
+                            <constraint firstItem="7AO-AO-D5m" firstAttribute="centerX" secondItem="YgA-pW-wXf" secondAttribute="centerX" id="ca8-Uj-fcc"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="7AO-AO-D5m" secondAttribute="leading" id="iWO-5d-Nhe"/>
+                            <constraint firstAttribute="trailing" secondItem="11d-68-ywP" secondAttribute="trailing" id="pUP-un-UBf"/>
+                        </constraints>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UvT-TO-Xnf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-709" y="548"/>
+        </scene>
+        <!--Location Tracker-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="LocTracker" customModuleProvider="target" sceneMemberID="viewController">
@@ -18,40 +70,32 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="fZy-Gk-FcR">
-                                <rect key="frame" x="0.0" y="174" width="320" height="394"/>
+                                <rect key="frame" x="0.0" y="64" width="320" height="304"/>
                             </mapView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Wh-30-wkU">
-                                <rect key="frame" x="20" y="77" width="280" height="25"/>
-                                <state key="normal" title="Zoom To Location"/>
-                                <connections>
-                                    <action selector="updateLocation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="O47-mc-SbZ"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mur-3O-qAp">
-                                <rect key="frame" x="20" y="98" width="280" height="27"/>
+                                <rect key="frame" x="20" y="376" width="280" height="27"/>
                                 <state key="normal" title="Monitor Region"/>
                                 <connections>
                                     <action selector="monitorRegion:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dsB-JJ-QzE"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S3b-Q7-o8F">
-                                <rect key="frame" x="20" y="119" width="280" height="30"/>
+                                <rect key="frame" x="20" y="411" width="280" height="31"/>
                                 <state key="normal" title="Check Details"/>
                                 <connections>
                                     <segue destination="Bay-of-zNE" kind="show" id="qbj-9h-0E3"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="68X-xI-gSA">
-                                <rect key="frame" x="20" y="143" width="280" height="23"/>
-                                <state key="normal" title="Add Overlay"/>
-                                <connections>
-                                    <action selector="addRegion:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Jn7-2c-dtk"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="2aA-iT-LYs"/>
+                    <navigationItem key="navigationItem" title="Location Tracker" id="2aA-iT-LYs">
+                        <barButtonItem key="rightBarButtonItem" image="LocPointer" id="dJz-wr-acy">
+                            <connections>
+                                <action selector="zoomIntoLocation:" destination="BYZ-38-t0r" id="PML-j8-PMS"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="mapView" destination="fZy-Gk-FcR" id="6kj-jA-bfu"/>
@@ -59,7 +103,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="24" y="2"/>
+            <point key="canvasLocation" x="365" y="2"/>
         </scene>
         <!--Check Details View Controller-->
         <scene sceneID="UlV-Rk-Xvm">
@@ -85,6 +129,42 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4Mg-93-Dla">
+                                <rect key="frame" x="20" y="163" width="280" height="385"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="cyq-4M-wTQ">
+                                        <rect key="frame" x="0.0" y="28" width="280" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cyq-4M-wTQ" id="TqB-XF-Sq0">
+                                            <rect key="frame" x="0.0" y="0.0" width="280" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZhA-wQ-tGS">
+                                                    <rect key="frame" x="14" y="11" width="36" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hours Worked" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LZX-fy-wfN">
+                                                    <rect key="frame" x="162" y="11" width="110" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="LZX-fy-wfN" firstAttribute="top" secondItem="TqB-XF-Sq0" secondAttribute="top" constant="11" id="DLZ-NS-1Bi"/>
+                                                <constraint firstItem="ZhA-wQ-tGS" firstAttribute="top" secondItem="TqB-XF-Sq0" secondAttribute="top" constant="11" id="Ers-9B-r6X"/>
+                                                <constraint firstItem="ZhA-wQ-tGS" firstAttribute="leading" secondItem="TqB-XF-Sq0" secondAttribute="leading" constant="8" id="InZ-x0-eQR"/>
+                                                <constraint firstAttribute="bottom" secondItem="ZhA-wQ-tGS" secondAttribute="bottom" constant="11" id="LwJ-CT-93w"/>
+                                                <constraint firstAttribute="bottom" secondItem="LZX-fy-wfN" secondAttribute="bottom" constant="11" id="ben-yx-m29"/>
+                                                <constraint firstAttribute="trailing" secondItem="LZX-fy-wfN" secondAttribute="trailing" constant="8" id="bh7-LV-MwP"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -96,26 +176,30 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SiO-Ia-pjL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="426" y="2"/>
+            <point key="canvasLocation" x="815" y="2"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="cQV-9s-1WF">
+        <scene sceneID="ZiY-YA-UJr">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="eKy-I3-C79" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="5Gt-Ph-csg" sceneMemberID="viewController">
                     <toolbarItems/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="rz3-vM-pzC">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="sP6-Oh-0P4">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="ynI-9i-Tqv"/>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="ivE-C8-z6p"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Juf-DN-arv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5ir-YW-aZH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-401" y="2"/>
+            <point key="canvasLocation" x="24" y="2"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="LocPointer" width="25" height="25"/>
+        <image name="emojo1.png" width="553" height="952"/>
+    </resources>
 </document>
