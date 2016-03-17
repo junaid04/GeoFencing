@@ -16,6 +16,7 @@
 		041BD3A81C91727E0007C15B /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041BD3A71C91727E0007C15B /* Location.swift */; };
 		041BD3AA1C91898A0007C15B /* mapClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041BD3A91C91898A0007C15B /* mapClass.swift */; };
 		0427D2B11C98485500FBB7DE /* CheckDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0427D2B01C98485500FBB7DE /* CheckDetailsViewController.swift */; };
+		A537987A1C998AB800BC1871 /* emojo1.png in Resources */ = {isa = PBXBuildFile; fileRef = A53798791C998AB800BC1871 /* emojo1.png */; };
 		A5E116C21C942FA300ADA10D /* Location.gpx in Resources */ = {isa = PBXBuildFile; fileRef = A5E116C11C942FA300ADA10D /* Location.gpx */; };
 /* End PBXBuildFile section */
 
@@ -34,6 +35,7 @@
 		0427D2B01C98485500FBB7DE /* CheckDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckDetailsViewController.swift; sourceTree = "<group>"; };
 		0427D2B21C98513900FBB7DE /* hometowork.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = hometowork.gpx; sourceTree = "<group>"; };
 		A50511A91C94685000668CBC /* Home.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Home.gpx; sourceTree = "<group>"; };
+		A53798791C998AB800BC1871 /* emojo1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = emojo1.png; sourceTree = "<group>"; };
 		A5E116C11C942FA300ADA10D /* Location.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = Location.gpx; path = LocTracker/Location.gpx; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -75,12 +77,13 @@
 				041BD3941C9172560007C15B /* ViewController.swift */,
 				041BD3A71C91727E0007C15B /* Location.swift */,
 				041BD3A91C91898A0007C15B /* mapClass.swift */,
+				0427D2B01C98485500FBB7DE /* CheckDetailsViewController.swift */,
 				041BD3961C9172560007C15B /* Main.storyboard */,
+				A53798791C998AB800BC1871 /* emojo1.png */,
 				041BD39C1C9172570007C15B /* Assets.xcassets */,
 				041BD39E1C9172570007C15B /* LaunchScreen.storyboard */,
 				041BD3A11C9172570007C15B /* Info.plist */,
 				041BD3991C9172570007C15B /* LocTracker.xcdatamodeld */,
-				0427D2B01C98485500FBB7DE /* CheckDetailsViewController.swift */,
 			);
 			path = LocTracker;
 			sourceTree = "<group>";
@@ -145,6 +148,7 @@
 			files = (
 				041BD3A01C9172570007C15B /* LaunchScreen.storyboard in Resources */,
 				041BD39D1C9172570007C15B /* Assets.xcassets in Resources */,
+				A537987A1C998AB800BC1871 /* emojo1.png in Resources */,
 				A5E116C21C942FA300ADA10D /* Location.gpx in Resources */,
 				041BD3981C9172560007C15B /* Main.storyboard in Resources */,
 			);

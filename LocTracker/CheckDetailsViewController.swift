@@ -56,11 +56,15 @@ class CheckDetailsViewController: UIViewController {
         lblDate.text = "Check out at \(timeVal2) \(dateVal2)"
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
-
+    
    
+}
+
+extension CheckDetailsViewController : UITableViewDelegate, UITableViewDataSource{
+
+
+
+
+
 }
