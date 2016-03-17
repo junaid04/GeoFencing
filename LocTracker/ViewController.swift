@@ -43,6 +43,7 @@ class ViewController: UIViewController, MKMapViewDelegate{
     //Map view delegate
     func mapView(mapView: MKMapView, didUpdateUserLocation userLocation: MKUserLocation) {
         
+         self.mapView.showsUserLocation = true
         let userLocation = mapView.userLocation
         mapView.centerCoordinate = userLocation.coordinate
         

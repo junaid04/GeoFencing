@@ -30,6 +30,20 @@ class CheckDetailsViewController: UIViewController {
         
     }
     
+    func formatDate(timeStamp: Double) -> String  {
+        
+        let dateAndTimeFormatter = NSDateFormatter()
+        dateAndTimeFormatter.timeStyle = .ShortStyle
+        dateAndTimeFormatter.dateStyle = .ShortStyle
+        
+        let currentDateAndTime = NSDate(timeIntervalSince1970: timeStamp)
+        let formatDateAndTime = dateAndTimeFormatter.stringFromDate(currentDateAndTime)
+        
+        return formatDateAndTime
+        
+
+    }
+    
     override func viewWillAppear(animated: Bool) {
         
         timeVal = location.checkInTime
@@ -42,29 +56,22 @@ class CheckDetailsViewController: UIViewController {
         let time2 = userDefault.valueForKey("time2") as! Double
         
         let timeDiff = time2 - time1
-        print(timeDiff)
-        let time = NSDate(timeIntervalSince1970: timeDiff)
-        let df = NSDateFormatter()
-        df.dateStyle = .NoStyle
-        df.timeStyle = .ShortStyle
+         let hours = timeDiff/3600
+        let minutes = Int((timeDiff % 3600) / 60)
+        print("\(hours)" + "\( minutes)")
         
-        let formTime = df.stringFromDate(time)
-        print(formTime)
+       let ftime1 = formatDate(time1)
+       let ftime2 =  formatDate(time2)
         
         
-        lblTime.text = "Check in at \(timeVal) \(dateVal)"
-        lblDate.text = "Check out at \(timeVal2) \(dateVal2)"
+        
+        
+        lblTime.text = "Check in at \(ftime1) "
+        lblDate.text = "Check out at \(ftime2)"
+        
     }
 
     
     
    
-}
-
-extension CheckDetailsViewController : UITableViewDelegate, UITableViewDataSource{
-
-
-
-
-
 }
