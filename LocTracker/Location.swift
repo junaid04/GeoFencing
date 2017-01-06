@@ -21,11 +21,11 @@ class Location: NSObject, CLLocationManagerDelegate {
     var time2: Double!
     var address: String!
     
-    let userDefault = NSUserDefaults.standardUserDefaults()
+    let userDefault = UserDefaults.standard
     
     
-    func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
-        if status == .NotDetermined {
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        if status == .notDetermined {
             manager.requestWhenInUseAuthorization()
             manager.startUpdatingLocation()
         }
@@ -42,7 +42,8 @@ class Location: NSObject, CLLocationManagerDelegate {
         
     }
     
-    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+    //MARK: - CLLocationManager Delegate
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let loc = (locations as NSArray).lastObject
         currentLocation =  loc as! CLLocation
 //        let geoCoder = CLGeocoder()
@@ -57,18 +58,18 @@ class Location: NSObject, CLLocationManagerDelegate {
 //        })
     }
     
-    func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         
         locmanager.stopUpdatingLocation()
     }
     
-    func locationManager(manager: CLLocationManager, didStartMonitoringForRegion region: CLRegion) {
+    func locationManager(_ manager: CLLocationManager, didStartMonitoringFor region: CLRegion) {
         print("You are now monitoring for \(region.identifier)")
     }
     
     
     
-    func locationManager(manager: CLLocationManager, didEnterRegion region: CLRegion) {
+    func locationManager(_ manager: CLLocationManager, didEnterRegion region: CLRegion) {
         
         print("Enter Region")
         
@@ -77,35 +78,35 @@ class Location: NSObject, CLLocationManagerDelegate {
         checkInDate = checkIndateAndTime.0[1]
         time1 = checkIndateAndTime.1
         print(time1)
-        userDefault.setDouble(time1, forKey: "time1")
+        userDefault.set(time1, forKey: "time1")
         
         
     }
     
-    func locationManager(manager: CLLocationManager, didExitRegion region: CLRegion) {
+    func locationManager(_ manager: CLLocationManager, didExitRegion region: CLRegion) {
         
         let checkOutdateAndTime = getCurrentDateAndTime()
         checkOutTime = checkOutdateAndTime.0[0]
         checkOutDate = checkOutdateAndTime.0[1]
         time2 = checkOutdateAndTime.1
-        userDefault.setDouble(time2, forKey: "time2")
+        userDefault.set(time2, forKey: "time2")
         
         print("Exit Region")
     }
     
-    
+    //MARK: - Custom Method
     func getCurrentDateAndTime() -> (Array<String>, Double)  {
         
-        let timeStamp = NSDate().timeIntervalSince1970
+        let timeStamp = Date().timeIntervalSince1970
         
-        let dateAndTimeFormatter = NSDateFormatter()
-        dateAndTimeFormatter.timeStyle = .ShortStyle
-        dateAndTimeFormatter.dateStyle = .ShortStyle
+        let dateAndTimeFormatter = DateFormatter()
+        dateAndTimeFormatter.timeStyle = .short
+        dateAndTimeFormatter.dateStyle = .short
         
-        let currentDateAndTime = NSDate(timeIntervalSince1970: timeStamp)
-        let formatDateAndTime = dateAndTimeFormatter.stringFromDate(currentDateAndTime)
+        let currentDateAndTime = Date(timeIntervalSince1970: timeStamp)
+        let formatDateAndTime = dateAndTimeFormatter.string(from: currentDateAndTime)
         
-        let dateAndTime = formatDateAndTime.componentsSeparatedByString(", ")
+        let dateAndTime = formatDateAndTime.components(separatedBy: ", ")
         
         return (dateAndTime,timeStamp)
         

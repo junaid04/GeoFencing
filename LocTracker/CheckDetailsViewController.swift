@@ -12,7 +12,7 @@ class CheckDetailsViewController: UIViewController {
     
     let location = Location()
     
-
+    
     @IBOutlet weak var lblTime: UILabel!
     @IBOutlet weak var lblDate: UILabel!
     
@@ -21,8 +21,7 @@ class CheckDetailsViewController: UIViewController {
     var dateVal2: String!
     var timeVal2: String!
     var timDiff: String!
-    let userDefault = NSUserDefaults.standardUserDefaults()
-    
+    let userDefault = UserDefaults.standard
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,21 +29,20 @@ class CheckDetailsViewController: UIViewController {
         
     }
     
-    func formatDate(timeStamp: Double) -> String  {
+    func formatDate(_ timeStamp: Double) -> String  {
         
-        let dateAndTimeFormatter = NSDateFormatter()
-        dateAndTimeFormatter.timeStyle = .ShortStyle
-        dateAndTimeFormatter.dateStyle = .ShortStyle
+        let dateAndTimeFormatter = DateFormatter()
+        dateAndTimeFormatter.timeStyle = .short
+        dateAndTimeFormatter.dateStyle = .short
         
-        let currentDateAndTime = NSDate(timeIntervalSince1970: timeStamp)
-        let formatDateAndTime = dateAndTimeFormatter.stringFromDate(currentDateAndTime)
+        let currentDateAndTime = Date(timeIntervalSince1970: timeStamp)
+        let formatDateAndTime = dateAndTimeFormatter.string(from: currentDateAndTime)
         
         return formatDateAndTime
         
-
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         
         timeVal = location.checkInTime
         dateVal = location.checkInDate
@@ -52,26 +50,28 @@ class CheckDetailsViewController: UIViewController {
         timeVal2 = location.checkOutTime
         dateVal2 = location.checkOutDate
         
-        let time1 = userDefault.valueForKey("time1") as! Double
-        let time2 = userDefault.valueForKey("time2") as! Double
+        var time1:Double = 0.0
+        var time2:Double = 0.0
         
-        let timeDiff = time2 - time1
-         let hours = timeDiff/3600
-        let minutes = Int((timeDiff % 3600) / 60)
-        print("\(hours)" + "\( minutes)")
+        if let t1 = userDefault.value(forKey: "time1") as? Double {
+            time1 = t1
+        }
         
-       let ftime1 = formatDate(time1)
-       let ftime2 =  formatDate(time2)
+        if let t2 = userDefault.value(forKey: "time2") as? Double {
+            time2 = t2
+        }
         
-        
-        
-        
-        lblTime.text = "Check in at \(ftime1) "
-        lblDate.text = "Check out at \(ftime2)"
-        
+        if time1 != 0.0 && time2 != 0.0 {
+            let timeDiff = time2 - time1
+            let hours = timeDiff/3600
+            let minutes = Int((timeDiff.truncatingRemainder(dividingBy: 3600)) / 60)
+            print("\(hours)" + "\( minutes)")
+            
+            let ftime1 = formatDate(time1)
+            let ftime2 =  formatDate(time2)
+            
+            lblTime.text = "Check in at \(ftime1) "
+            lblDate.text = "Check out at \(ftime2)"
+        }
     }
-
-    
-    
-   
 }
